@@ -26,3 +26,7 @@ app.use(require("./routes/api.js"));
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
 });
+
+require('./db')
+  .then(() => app.listen(process.env.PORT || 3000))
+  .catch(err => console.log(err))
